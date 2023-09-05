@@ -3,28 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Access Denied</title>
-    <link rel="icon", href="https://cdn-icons-png.flaticon.com/512/811/811683.png"/>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/811/811683.png"/>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ff0000;
-            text-align: center;
-            padding: 50px;
-        }
-
-        h1 {
-            color: #ffffff;
-        }
-
-        p {
-            color: #ffffff;
-            margin-top: 20px;
-        }
-
+        body {font-family: Arial, sans-serif;background-color: #ff0000;text-align: center;padding: 50px;}
+        h1 {color: #ffffff;}
+        p {color: #ffffff;margin-top: 20px;}
     </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const reason = urlParams.get('reason');
+            const grundElement = document.getElementById('grund');
+            if (reason) {
+                grundElement.textContent = reason;
+            }
+            else {grundElement.textContent = "undefined  reason";}
+        });
+    </script>
 </head>
 <body>
 <img src="Block.png">
 <p>Deine Anfrage wurde von meiner Firewall blockiert.</p>
+<p>Grund: <span id="grund"></span></p>
 </body>
 </html>
