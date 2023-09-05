@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Access Denied</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/811/811683.png"/>
+
     <style>
         body {font-family: Arial, sans-serif;background-color: #ff0000;text-align: center;padding: 50px;}
         h1 {color: #ffffff;}
@@ -14,16 +15,30 @@
             const urlParams = new URLSearchParams(window.location.search);
             const reason = urlParams.get('reason');
             const grundElement = document.getElementById('grund');
+
             if (reason) {
                 grundElement.textContent = reason;
+                var grunddafur = (grundElement.textContent);
+                console.warn("%cAccess Denied", "font-size: 30px");
+                console.warn("%cDeine Anfrage wurde von meiner Firewall blockiert.", "font-size: 20px");
+                console.warn("Grund: ", grunddafur);
+
             }
-            else {grundElement.textContent = "undefined  reason";}
+            else {grundElement.textContent = "undefined  reason";
+                var grunddafur = 'undefined  reason';
+                console.warn("%cAccess Denied", "font-size: 30px");
+                console.warn("%cDeine Anfrage wurde von meiner Firewall blockiert.", "font-size: 20px");
+                console.warn("Grund: ", grunddafur);}
+            console.info("to Access please go here https://gameware75.de/Access")
+
         });
+
     </script>
 </head>
 <body>
 <img src="Block.png">
-<p>Deine Anfrage wurde von meiner Firewall blockiert.</p>
+<p>Deine Anfrage wurde abgelehnt</p>
 <p>Grund: <span id="grund"></span></p>
+
 </body>
 </html>
