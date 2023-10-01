@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown bis 16:45 Uhr</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        #countdown {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff5733;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function berechneCountdown() {
+            var jetzt = new Date();
+            var zielzeitpunkt = new Date(jetzt.getFullYear(), jetzt.getMonth(), jetzt.getDate(), 16, 30, 0);
+            var differenz = zielzeitpunkt - jetzt;
+            var stunden = Math.floor(differenz / 3600000);
+            var minuten = Math.floor((differenz % 3600000) / 60000);
+            var sekunden = Math.floor((differenz % 60000) / 1000);
+            document.getElementById("countdown").innerHTML = stunden + "h " + minuten + "m " + sekunden + "s";
+        }
+
+        setInterval(berechneCountdown, 1000);
+        window.onload = berechneCountdown;
+    </script>
+</head>
+<body>
+    <h1>Countdown bis 16:30 Uhr</h1>
+    <div id="countdown"></div>
+</body>
+</html>
